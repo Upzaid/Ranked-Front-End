@@ -3,16 +3,16 @@ import {Link} from 'react-router-dom'
 
 
 function Nav() {
-    
+    const rankedAPI = process.env.REACT_APP_API_URL
     let [status, setStatus] = useState(false)
     
     useEffect(()=> {
         getStatus()
     },[])
 
-    
+    // Get log in status to render acordingly
     let getStatus = async () =>{
-        const loggedIn = await fetch('http://localhost:5000/api/user/status', {headers: {'ranked-token': localStorage.getItem('ranked-token')}})
+        const loggedIn = await fetch(`${process.env.REACT_APP_API_URL}/user/status`, {headers: {'ranked-token': localStorage.getItem('ranked-token')}})
         setStatus(await loggedIn.json())
     }
     
