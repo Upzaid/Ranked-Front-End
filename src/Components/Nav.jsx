@@ -1,4 +1,4 @@
-import React, {setState, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 
 
@@ -16,12 +16,17 @@ function Nav() {
         setStatus(await loggedIn.json())
     }
     
+    function logOut (){
+        localStorage.removeItem('ranked-token')
+        window.location.replace('/')
+    }
+
     if (status){
         return(
             <nav>
                 <ul>
                     <Link to='/home'><li>Home</li></Link>
-                    <Link to='/login'><li>Log Out</li></Link>
+                    <Link to='/'><li onClick={()=> logOut()}>Log Out</li></Link>
                 </ul>
             </nav>
         )

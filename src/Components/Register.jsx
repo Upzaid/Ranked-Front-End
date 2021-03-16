@@ -40,7 +40,6 @@ function Register(){
         setRegions(data.geonames);
     }
 
-    
     async function submit () {
 
         // Get fields from the form to send the request
@@ -78,7 +77,7 @@ function Register(){
     }
 
     return (
-        <form onSubmit={(e)=>e.preventDefault()}>
+        <form onSubmit={e => e.preventDefault()}>
             <h1>Registration</h1>
             <label htmlFor="first_name">First Name:</label>
             <input type="text" name="first_name"  required/>
