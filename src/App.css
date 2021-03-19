@@ -1,5 +1,67 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.button {
+  display: flex;
+  height: 40px;
+  max-width: 150px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+li {
+  display: flex;
+  height: 40px;
+  max-width: 150px;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+li:hover,
+button {
+  cursor: pointer;
+}
+
+form {
+  padding: 2%;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px auto;
+  width: 50vh;
+}
+
+form input,
+form select,
+form textarea,
+form button,
+form label {
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
 }
