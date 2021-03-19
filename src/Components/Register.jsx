@@ -53,7 +53,7 @@ function Register(){
             state:      document.getElementsByName('state')[0].options[document.getElementsByName('state')[0].selectedIndex].text,
             region:     document.getElementsByName('region')[0].value
         }
-        console.log(user);
+        
         // Send request to the API
         const response = await fetch(`${rankedAPI}/register`,{
             method:'POST',

@@ -7,7 +7,7 @@ import ProfileFrame from './ProfileFrame'
 function Home(){
 
     let [user, setUser] = useState()
-    let [content, setContent] = useState([])
+    let [content, setContent] = useState(<ProfileFrame />)
 
     useEffect(()=> {
         getUser()
@@ -24,11 +24,13 @@ function Home(){
         return (
             <div>
                 <h1>Home</h1>
-                <ul>
-                    <li onClick={() =>{setContent(<ProfileFrame />)}}>My Profile</li>
-                    <li onClick={() =>{setContent(<TournamentFrame />)}}>My Tournaments</li>
-                    <li onClick={() =>{setContent(<MatchHistoryFrame />)}}>Match History</li>
-                </ul>
+                <nav>
+                    <ul>
+                        <li onClick={() =>{setContent(<ProfileFrame />)}}>My Profile</li>
+                        <li onClick={() =>{setContent(<TournamentFrame />)}}>My Tournaments</li>
+                        <li onClick={() =>{setContent(<MatchHistoryFrame />)}}>Match History</li>
+                    </ul>
+                </nav>
                 <div>
                     {content}
                 </div>
