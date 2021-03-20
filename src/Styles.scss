@@ -1,4 +1,11 @@
+$primary-color: #428bff;
+$secondary-color: #3c7de6;
+$text-color: white;
+$error: #ff4242;
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+
+// GENERAL RESET
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +17,7 @@ body {
   background-color: white;
 }
 
+// BUTTON RESET
 button {
   border: none;
 }
@@ -25,10 +33,12 @@ ul {
   list-style: none;
 }
 
+// GENERAL CLASSES
+
 .error {
   border-radius: 10px;
-  background-color: #ff4242;
-  color: white;
+  background-color: $error;
+  color: $text-color;
 }
 
 .grid-container {
@@ -44,7 +54,7 @@ ul {
 .tournament-container {
   border-radius: 10px;
   padding: 10px;
-  background-color: #428bff;
+  background-color: $primary-color;
   color: white;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
   max-height: 15vh;
@@ -52,7 +62,7 @@ ul {
 
 .landing-page {
   display: flex;
-  background-color: #428bff;
+  background-color: $primary-color;
   height: 100vh;
   color: white;
   flex-direction: column;
@@ -64,11 +74,12 @@ ul {
   font-size: 2.6em;
 }
 
+// BUTTON CLASS
 .button {
   border-radius: 5px;
   height: 40px;
-  color: white;
-  background-color: #428bff;
+  color: $text-color;
+  background-color: $primary-color;
   margin: 5px;
   display: flex;
   height: 40px;
@@ -80,8 +91,8 @@ ul {
 .inversed-button {
   border-radius: 5px;
   height: 40px;
-  color: #428bff;
-  background-color: white;
+  color: $primary-color;
+  background-color: $text-color;
   margin: 5px;
   display: flex;
   height: 40px;
@@ -92,7 +103,7 @@ ul {
 
 .button:hover,
 .inversed-button:hover {
-  background-color: #3c7de6;
+  background-color: $secondary-color;
   cursor: pointer;
 }
 
@@ -104,8 +115,10 @@ li {
   padding: 10px;
 }
 
+// FORMS
+
 form {
-  background-color: #3c7de6;
+  background-color: $secondary-color;
   padding: 2%;
   border-radius: 20px;
   display: flex;
@@ -113,26 +126,26 @@ form {
   margin: 10px auto;
   width: 50vh;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-}
-form label {
-  color: white;
-}
-form h1,
-form h2 {
-  color: white;
-  margin-bottom: 10px;
-}
-form .button {
-  background-color: #eee;
-  color: #428bff;
-}
-form input,
-form select {
-  height: 30px;
-  border: none;
-  border-radius: 15px;
-  padding-left: 10px;
-  font-size: 1em;
+  label {
+    color: $text-color;
+  }
+  h1,
+  h2 {
+    color: $text-color;
+    margin-bottom: 10px;
+  }
+  .button {
+    background-color: #eee;
+    color: $primary-color;
+  }
+  input,
+  select {
+    height: 30px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 10px;
+    font-size: 1em;
+  }
 }
 
 form input,
@@ -152,5 +165,3 @@ a:visited {
   text-decoration: none;
   color: black;
 }
-
-/*# sourceMappingURL=App.css.map */
