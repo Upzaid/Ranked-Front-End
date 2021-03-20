@@ -1,37 +1,51 @@
 import React, {useEffect, useState} from 'react';
 import NewTournament from './NewTournamentForm'
+import TournamentDisplay from './TournamentDisplay'
 
 function TournamentFrame (){
     let [tournaments, setTournaments] = useState([])
+    let [createTournament, setCreateTournament] =useState(false)
    
     useEffect(()=>{
         getTournaments()
-    },[])
+    },[createTournament])
     
     async function getTournaments() {
         const response = await fetch(`${process.env.REACT_APP_API_URL}/tournament/all`, {headers: {'ranked-token': localStorage.getItem('ranked-token')}})
         setTournaments(await response.json())
     }
 
-    return(
-        <div>
+
+    if (createTournament){
+        return(
             <div>
                 <NewTournament />
-            </div>
-            {tournaments.map(tournament =>{
-                return(
-                    <div key={tournament.tournament_uuid} style={{border: '1px solid black'}}>
-                        <h2>{tournament.tournament_name}</h2>
-                        <h3>{tournament.game_name}</h3>
-                        <p>{tournament.details}</p>
-                        <p>{tournament.structure} {tournament.status}</p>
-                        <div style={{display:'flex', justifyContent: 'space-around'}}>
-                            <button>DELETE</button>
-                            <button>EDIT</button>
-                        </div>
+                <div className='grid-container'>
+                    <div className='tournament-container' onClick={()=>{ setCreateTournament(false)}}>
+                        <h1>CLOSE NEW TOURNAMENT FORM</h1>
                     </div>
-                )
-            })}
+                    {tournaments.map(tournament =>{
+                        return(
+                        <TournamentDisplay tournament={tournament} />
+                        )
+                    })}
+                </div>
+            </div>
+        )
+    }
+
+    return(
+        <div>
+            <div className='grid-container'>
+                <div className='tournament-container' onClick={()=>{ setCreateTournament(true)}}>
+                    <h1>CREATE NEW TOURNAMENT</h1>
+                </div>
+                {tournaments.map(tournament =>{
+                    return(
+                    <TournamentDisplay tournament={tournament} />
+                    )
+                })}
+            </div>
         </div>
     )
 }

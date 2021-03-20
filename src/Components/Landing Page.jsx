@@ -17,8 +17,8 @@ function LandingPage(){
     }
 
     return (
-        <div>
-            <h1>Landing Page</h1>
+        <div className='landing-page'>
+            <div className='logo'><h1>RANKDPRO.com</h1></div>
         </div>
     );
 };

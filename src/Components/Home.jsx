@@ -26,14 +26,12 @@ function Home(){
                 <h1>Home</h1>
                 <nav>
                     <ul>
-                        <li onClick={() =>{setContent(<ProfileFrame />)}}>My Profile</li>
-                        <li onClick={() =>{setContent(<TournamentFrame />)}}>My Tournaments</li>
-                        <li onClick={() =>{setContent(<MatchHistoryFrame />)}}>Match History</li>
+                        <li className='button' onClick={() =>{setContent(<ProfileFrame />)}}>My Profile</li>
+                        <li className='button' onClick={() =>{setContent(<TournamentFrame />)}}>My Tournaments</li>
+                        <li className='button' onClick={() =>{setContent(<MatchHistoryFrame />)}}>Match History</li>
                     </ul>
                 </nav>
-                <div>
                     {content}
-                </div>
             </div>
         );
     }

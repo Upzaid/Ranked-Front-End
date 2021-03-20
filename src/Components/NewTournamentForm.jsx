@@ -38,15 +38,19 @@ function NewTournament (){
     // API Call for states
     async function getStates () {
         const selection = document.getElementById('country')
-        const data = await geonames.children({geonameId:selection.value})
-        setStates(data.geonames);
+        if (selection.value){
+            const data = await geonames.children({geonameId:selection.value})
+            setStates(data.geonames);
+        }   
     }
 
     // API Call for cities
     async function getRegions () {
         const selection = document.getElementById('state')
-        const data = await geonames.children({geonameId:selection.value})
-        setRegions(data.geonames);
+        if(selection.value){
+            const data = await geonames.children({geonameId:selection.value})
+            setRegions(data.geonames);
+        }
     }
 
     async function submit() {
@@ -77,7 +81,6 @@ function NewTournament (){
             setSubmitErrors(await response.json());
             return
         }
-        
     }
 
     return(
@@ -132,8 +135,8 @@ function NewTournament (){
             <select name="structure" id="structure">
                 <option value="structure">Mock Structure Name</option>
             </select>
-            <button type="submit" onClick={() => submit()}>Submit</button>
-            <p>{submitErrors}</p>
+            <button className='button' type="submit" onClick={() => submit()}>Submit</button>
+            <p className='error'>{submitErrors}</p>
         </form>
     )
 }

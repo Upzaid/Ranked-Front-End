@@ -29,15 +29,19 @@ function Register(){
     // API Call for states
     async function getStates () {
         const selection = document.getElementById('country')
-        const data = await geonames.children({geonameId:selection.value})
-        setStates(data.geonames);
+        if (selection.value){
+            const data = await geonames.children({geonameId:selection.value})
+            setStates(data.geonames);
+        }
     }
 
-    // API Call for cities
+    // API Call for Regions
     async function getRegions () {
         const selection = document.getElementById('state')
-        const data = await geonames.children({geonameId:selection.value})
-        setRegions(data.geonames);
+        if (selection.value){
+            const data = await geonames.children({geonameId:selection.value})
+            setRegions(data.geonames);
+        }
     }
 
     async function submit () {
@@ -121,7 +125,7 @@ function Register(){
             <button type='submit' onClick={()=> submit()}>Submit</button>
             {submitErrors.map(err =>{
                 return (
-                    <p>{err}</p>
+                    <p className='error'>{err}</p>
                 )
             } )}
         </form>

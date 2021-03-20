@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 
-
 function Nav() {
     const rankedAPI = process.env.REACT_APP_API_URL
     let [status, setStatus] = useState(false)
@@ -25,8 +24,8 @@ function Nav() {
         return(
             <nav>
                 <ul>
-                    <Link to='/home'><li>Home</li></Link>
-                    <Link to='/'><li onClick={()=> logOut()}>Log Out</li></Link>
+                    <Link to='/home'><li className='button'>Home</li></Link>
+                    <Link to='/'><li className='button' onClick={()=> logOut()}>Log Out</li></Link>
                 </ul>
             </nav>
         )
@@ -35,15 +34,12 @@ function Nav() {
         return (
             <nav>
                 <ul>
-                    <Link to='/home'><li>Home</li></Link>
-                    <Link to='/login'><li>Log In</li></Link>
-                    <Link to='/register'><li>Register</li></Link>
+                    <Link to='/login'><li className='button'>Log In</li></Link>
+                    <Link to='/register'><li className='button'>Register</li></Link>
                 </ul>
             </nav>
-           
         );
     } 
-    
 };
 
 export default Nav;
