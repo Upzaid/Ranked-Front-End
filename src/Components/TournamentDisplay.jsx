@@ -2,11 +2,20 @@ import React, {useEffect, useState} from 'react';
 import NewTournament from './NewTournamentForm'
 
 function TournamentDisplay (props){
-    
+    const rankedAPI = process.env.REACT_APP_API_URL
+
     async function deleteTournament (id){
         let confirmation = window.confirm('Do you want to delete this tournament?')
         if(confirmation){
-            console.log(`Tournament ${id} deleted`);
+            await fetch(`${rankedAPI}/tournament/delete`,{
+                method:'DELETE',
+                body: JSON.stringify({tournament_id:id}),
+                headers:{
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'ranked-token': localStorage.getItem('ranked-token')
+                }
+            })
         }
     }
 
