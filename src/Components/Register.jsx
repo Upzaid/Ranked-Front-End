@@ -77,12 +77,11 @@ function Register(){
         
         // Redirect to login page
         window.location.replace(`${process.env.REACT_APP_URL}/login`)
-
     }
 
     return (
         <form onSubmit={e => e.preventDefault()}>
-            <h1>Registration</h1>
+            <h1>Register</h1>
             <label htmlFor="first_name">First Name:</label>
             <input type="text" name="first_name"  required/>
             <label htmlFor="last_name">Last Name:</label>
@@ -122,7 +121,7 @@ function Register(){
                     )
                 })}
             </select>
-            <button type='submit' onClick={()=> submit()}>Submit</button>
+            <button type='submit' className='inversed-button' onClick={()=> submit()}>Submit</button>
             {submitErrors.map(err =>{
                 return (
                     <p className='error'>{err}</p>

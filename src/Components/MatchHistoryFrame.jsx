@@ -4,7 +4,7 @@ function MatchHistoryFrame (){
 
 
     return(
-        <div>
+        <div className='grid-container'>
             <h1>MATCH HISTORY</h1>
         </div>
     )

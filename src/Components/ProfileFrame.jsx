@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from 'react';
 
-function MatchHistoryFrame (){
+function ProfileFrame (){
 
 
     return(
-        <div>
+        <div className='grid-container'>
             <h1>PROFILE</h1>
         </div>
     )
 }
 
-export default MatchHistoryFrame
+export default ProfileFrame

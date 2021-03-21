@@ -28,12 +28,12 @@ function LogIn(){
 
     return (
         <form onSubmit={e => e.preventDefault()}>
-            <h1>Log In Page</h1>
+            <h1>Log In</h1>
             <label htmlFor="email">E-mail:</label>
             <input type="email" name="email" id="email" required/>
             <label htmlFor="password">Password:</label>
             <input type="password" name="password" id="password" required/>
-            <button type="submit" onClick={() => submit()}>Submit</button>
+            <button type="submit" className='inversed-button' onClick={() => submit()}>Submit</button>
         </form>
     );
 };

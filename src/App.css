@@ -48,6 +48,13 @@ ul {
   color: white;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
   max-height: 15vh;
+  cursor: pointer;
+}
+
+.tournament-container:hover {
+  background-color: #3c7de6;
+  transition: 0.2s;
+  transform: scale(1.05);
 }
 
 .landing-page {
@@ -88,6 +95,8 @@ ul {
   max-width: 150px;
   align-items: center;
   padding: 10px;
+  justify-content: center;
+  align-self: center;
 }
 
 .button:hover,

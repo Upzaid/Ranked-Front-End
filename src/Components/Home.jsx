@@ -13,7 +13,6 @@ function Home(){
         getUser()
     },[])
 
-
     // Get log in status to render acordingly
     let getUser = async () =>{
         const response = await fetch(`${process.env.REACT_APP_API_URL}/user/status`, {headers: {'ranked-token': localStorage.getItem('ranked-token')}})
@@ -23,7 +22,6 @@ function Home(){
     if(user){
         return (
             <div>
-                <h1>Home</h1>
                 <nav>
                     <ul>
                         <li className='button' onClick={() =>{setContent(<ProfileFrame />)}}>My Profile</li>
@@ -31,12 +29,11 @@ function Home(){
                         <li className='button' onClick={() =>{setContent(<MatchHistoryFrame />)}}>Match History</li>
                     </ul>
                 </nav>
-                    {content}
+                {content}
             </div>
         );
     }
     return(
-
         <div>
             <h1>Not Logged In</h1>
         </div>
