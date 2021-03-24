@@ -11,7 +11,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 const Routes = ()=>{
     return(
         <Router>
-            <div>
                 <Nav />
                 <Route path='/' exact component={LandingPage}/>
                 <Route path='/home' component={Home}/>
@@ -19,7 +18,6 @@ const Routes = ()=>{
                 <Route path='/register' component={Register}/>
                 <Route path='/:username/profile' component={Profile}/>
                 <Route path='/:tournament_id/details' component={TournamentDetails}/>
-            </div>
         </Router>
     )
 }
