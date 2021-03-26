@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import TournamentFrame from './TournamentFrame'
-import MatchHistoryFrame from './MatchHistoryFrame'
-import ProfileFrame from './ProfileFrame'
+import ProfileFrame from './Profile Frame/ProfileFrame'
 
 
 function Home(){
 
     let [user, setUser] = useState()
-    let [content, setContent] = useState(<ProfileFrame />)
 
     useEffect(()=> {
         getUser()
@@ -22,20 +19,13 @@ function Home(){
     if(user){
         return (
             <div>
-                <nav>
-                    <ul>
-                        <li className='button' onClick={() =>{setContent(<ProfileFrame />)}}>My Profile</li>
-                        <li className='button' onClick={() =>{setContent(<TournamentFrame />)}}>My Tournaments</li>
-                        <li className='button' onClick={() =>{setContent(<MatchHistoryFrame />)}}>Match History</li>
-                    </ul>
-                </nav>
-                {content}
+                <ProfileFrame />
             </div>
         );
     }
     return(
-        <div>
-            <h1>Not Logged In</h1>
+        <div className='landing-page'>
+            <h1>PLEASE LOG IN TO SEE THIS PAGE</h1>
         </div>
     )
 };

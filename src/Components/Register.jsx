@@ -121,7 +121,7 @@ function Register(){
                     )
                 })}
             </select>
-            <button type='submit' className='inversed-button' onClick={()=> submit()}>Submit</button>
+            <button type='submit' className='button' onClick={()=> submit()}>Submit</button>
             {submitErrors.map(err =>{
                 return (
                     <p className='error'>{err}</p>

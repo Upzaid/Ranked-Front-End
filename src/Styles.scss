@@ -1,5 +1,6 @@
 $primary-color: #428bff;
 $secondary-color: #3c7de6;
+$terciary-color: #27549b;
 $text-color: white;
 $error: #ff4242;
 
@@ -13,164 +14,166 @@ $error: #ff4242;
   font-family: "Roboto Condensed";
 }
 
-body {
-  background-color: white;
+a,
+a:visited {
+  text-decoration: none;
+  color: black;
 }
 
-// BUTTON RESET
-button {
-  border: none;
-}
+// NAVIGATION
 
 nav {
   display: flex;
   justify-content: flex-end;
-}
-
-ul {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-}
-
-// GENERAL CLASSES
-
-.error {
-  border-radius: 10px;
-  background-color: $error;
-  color: $text-color;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
-  grid-gap: 20px;
-  padding: 20px;
-  background-color: #eee;
-  min-height: 85vh;
-  min-width: 1280px;
-}
-
-.tournament-container {
-  border-radius: 10px;
-  padding: 10px;
   background-color: $primary-color;
-  color: white;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-  max-height: 15vh;
-  cursor: pointer;
-}
-
-.tournament-container:hover {
-  background-color: $secondary-color;
-  transition: 0.2s;
-  transform: scale(1.05);
-}
-
-.landing-page {
-  display: flex;
-  background-color: $primary-color;
-  height: 100vh;
-  color: white;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  font-size: 2.6em;
-}
-
-// BUTTON CLASS
-.button {
-  border-radius: 5px;
-  height: 40px;
-  color: $text-color;
-  background-color: $primary-color;
-  margin: 5px;
-  display: flex;
-  height: 40px;
-  max-width: 150px;
-  align-items: center;
-  padding: 10px;
-}
-
-.inversed-button {
-  border-radius: 5px;
-  height: 40px;
-  color: $primary-color;
-  background-color: $text-color;
-  margin: 5px;
-  display: flex;
-  height: 40px;
-  max-width: 150px;
-  align-items: center;
-  padding: 10px;
-  justify-content: center;
-  align-self: center;
-}
-
-.button:hover,
-.inversed-button:hover {
-  background-color: $secondary-color;
-  cursor: pointer;
+  li {
+    display: inline-block;
+    background-color: $secondary-color;
+    padding: 10px 15px;
+  }
+  li:hover {
+    background-color: $terciary-color;
+  }
+  .button {
+    color: black;
+    background-color: $secondary-color;
+  }
+  .button:hover {
+    background-color: $terciary-color;
+  }
 }
 
 li {
-  display: flex;
-  height: 40px;
-  max-width: 150px;
-  align-items: center;
-  padding: 10px;
+  display: inline;
 }
 
-// FORMS
-
-form {
-  background-color: $secondary-color;
-  padding: 2%;
-  border-radius: 20px;
+// MENUS
+.home-menu {
   display: flex;
-  flex-direction: column;
-  margin: 10px auto;
-  width: 50vh;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-  label {
-    color: $text-color;
+  padding: 0 50px;
+  border-bottom: 1px solid #ddd;
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
   }
-  h1,
-  h2 {
-    color: $text-color;
-    margin-bottom: 10px;
-  }
-  .button {
-    background-color: #eee;
+  li:hover,
+  .active {
+    cursor: pointer;
+    border-bottom: 2px solid $primary-color;
     color: $primary-color;
   }
-  input,
-  select {
-    height: 30px;
-    border: none;
-    border-radius: 15px;
-    padding-left: 10px;
-    font-size: 1em;
+}
+
+// GENERAL CLASSES
+.delete {
+  background-color: rgb(243, 104, 104);
+  padding: 1px;
+}
+.delete:hover {
+  background-color: rgb(212, 89, 89);
+  cursor: pointer;
+}
+
+.button {
+  background-color: $primary-color;
+  color: $text-color;
+}
+
+.button:hover {
+  cursor: pointer;
+  background-color: $secondary-color;
+}
+
+// PROFILE FRAME
+
+// LANDING PAGE
+.landing-page {
+  display: flex;
+  flex-direction: column;
+  color: $text-color;
+  background-color: $primary-color;
+  height: 98vh;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    font-size: 3em;
   }
 }
 
-form input,
-form select,
-form textarea,
-form button,
-form label,
-option {
-  margin-bottom: 10px;
+// CONTENT CONTAINER
+
+.content-container {
+  padding: 0 50px;
 }
 
-a {
-  text-decoration: none;
+.content {
+  padding: 20px;
+  height: 80vh;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
 }
 
-a:visited {
-  text-decoration: none;
-  color: black;
+// TOURNAMENT CARD AND CONTAINER
+
+.tournament-card-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 10px;
+  height: auto;
+}
+
+.tournament-card {
+  background-color: #f3f3f3;
+  padding: 10px;
+  border: 1px solid #ddd;
+  min-height: 150px;
+  position: relative;
+  .delete {
+    max-width: 32%;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+  }
+}
+
+.tournament-card:hover {
+  cursor: pointer;
+  background-color: rgb(231, 231, 231);
+}
+
+// FORM CONTAINER
+
+form {
+  background-color: #f3f3f3;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+  * {
+    margin-bottom: 5px;
+    border: none;
+  }
+}
+
+.form-container {
+  padding: 200px 450px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.637);
+  height: 100%;
+  .delete {
+    justify-self: flex-end;
+    max-width: 12%;
+  }
+}
+
+.error {
+  background-color: rgb(233, 67, 67);
 }

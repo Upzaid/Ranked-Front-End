@@ -6,160 +6,155 @@
   font-family: "Roboto Condensed";
 }
 
-body {
-  background-color: white;
-}
-
-button {
-  border: none;
+a,
+a:visited {
+  text-decoration: none;
+  color: black;
 }
 
 nav {
   display: flex;
   justify-content: flex-end;
-}
-
-ul {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-}
-
-.error {
-  border-radius: 10px;
-  background-color: #ff4242;
-  color: white;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 20% 20% 20% 20%;
-  grid-gap: 20px;
-  padding: 20px;
-  background-color: #eee;
-  min-height: 85vh;
-  min-width: 1280px;
-}
-
-.tournament-container {
-  border-radius: 10px;
-  padding: 10px;
   background-color: #428bff;
-  color: white;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-  max-height: 15vh;
+}
+nav li {
+  display: inline-block;
+  background-color: #3c7de6;
+  padding: 10px 15px;
+}
+nav li:hover {
+  background-color: #27549b;
+}
+nav .button {
+  color: black;
+  background-color: #3c7de6;
+}
+nav .button:hover {
+  background-color: #27549b;
+}
+
+li {
+  display: inline;
+}
+
+.home-menu {
+  display: flex;
+  padding: 0 50px;
+  border-bottom: 1px solid #ddd;
+}
+.home-menu li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+}
+.home-menu li:hover,
+.home-menu .active {
+  cursor: pointer;
+  border-bottom: 2px solid #428bff;
+  color: #428bff;
+}
+
+.delete {
+  background-color: #f36868;
+  padding: 1px;
+}
+
+.delete:hover {
+  background-color: #d45959;
   cursor: pointer;
 }
 
-.tournament-container:hover {
+.button {
+  background-color: #428bff;
+  color: white;
+}
+
+.button:hover {
+  cursor: pointer;
   background-color: #3c7de6;
-  transition: 0.2s;
-  transform: scale(1.05);
 }
 
 .landing-page {
   display: flex;
-  background-color: #428bff;
-  height: 100vh;
-  color: white;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo {
-  font-size: 2.6em;
-}
-
-.button {
-  border-radius: 5px;
-  height: 40px;
   color: white;
   background-color: #428bff;
-  margin: 5px;
-  display: flex;
-  height: 40px;
-  max-width: 150px;
-  align-items: center;
-  padding: 10px;
-}
-
-.inversed-button {
-  border-radius: 5px;
-  height: 40px;
-  color: #428bff;
-  background-color: white;
-  margin: 5px;
-  display: flex;
-  height: 40px;
-  max-width: 150px;
-  align-items: center;
-  padding: 10px;
+  height: 98vh;
   justify-content: center;
-  align-self: center;
-}
-
-.button:hover,
-.inversed-button:hover {
-  background-color: #3c7de6;
-  cursor: pointer;
-}
-
-li {
-  display: flex;
-  height: 40px;
-  max-width: 150px;
   align-items: center;
+}
+.landing-page .logo {
+  font-size: 3em;
+}
+
+.content-container {
+  padding: 0 50px;
+}
+
+.content {
+  padding: 20px;
+  height: 80vh;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.tournament-card-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 10px;
+  height: auto;
+}
+
+.tournament-card {
+  background-color: #f3f3f3;
   padding: 10px;
+  border: 1px solid #ddd;
+  min-height: 150px;
+  position: relative;
+}
+.tournament-card .delete {
+  max-width: 32%;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+}
+
+.tournament-card:hover {
+  cursor: pointer;
+  background-color: #e7e7e7;
 }
 
 form {
-  background-color: #3c7de6;
-  padding: 2%;
-  border-radius: 20px;
+  background-color: #f3f3f3;
+  padding: 40px;
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
-  width: 50vh;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.24);
-}
-form label {
-  color: white;
-}
-form h1,
-form h2 {
-  color: white;
-  margin-bottom: 10px;
-}
-form .button {
-  background-color: #eee;
-  color: #428bff;
-}
-form input,
-form select {
-  height: 30px;
   border: none;
-  border-radius: 15px;
-  padding-left: 10px;
-  font-size: 1em;
+}
+form * {
+  margin-bottom: 5px;
+  border: none;
 }
 
-form input,
-form select,
-form textarea,
-form button,
-form label,
-option {
-  margin-bottom: 10px;
+.form-container {
+  padding: 200px 450px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.637);
+  height: 100%;
+}
+.form-container .delete {
+  justify-self: flex-end;
+  max-width: 12%;
 }
 
-a {
-  text-decoration: none;
-}
-
-a:visited {
-  text-decoration: none;
-  color: black;
+.error {
+  background-color: #e94343;
 }
 
 /*# sourceMappingURL=App.css.map */

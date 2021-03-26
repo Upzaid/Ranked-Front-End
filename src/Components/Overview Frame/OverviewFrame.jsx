@@ -2,7 +2,9 @@ import React, {useEffect, useState} from 'react';
 
 function OverviewFrame (){
     return(
-        <h1>Overview Frame</h1>
+        <div className="content">
+            <h1>Overview Frame</h1>
+        </div>
     )
 }
 

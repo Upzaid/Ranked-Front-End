@@ -33,7 +33,7 @@ function LogIn(){
             <input type="email" name="email" id="email" required/>
             <label htmlFor="password">Password:</label>
             <input type="password" name="password" id="password" required/>
-            <button type="submit" className='inversed-button' onClick={() => submit()}>Submit</button>
+            <button type="submit" className='button' onClick={() => submit()}>Submit</button>
         </form>
     );
 };

@@ -77,10 +77,21 @@ function NewTournament (){
             }
         })
         
+        // Display errors if there are any
         if (response.status >= 400){
             setSubmitErrors(await response.json());
             return
         }
+
+        // Clear fields
+        document.getElementById('name').value =''
+        document.getElementById('game').value = ''
+        document.getElementById('country').options[document.getElementsByName('country')[0].selectedIndex].text = ''
+        document.getElementById('state').options[document.getElementsByName('state')[0].selectedIndex].text = ''
+        document.getElementById('region').value = ''
+        document.getElementById('online').value = ''
+        document.getElementById('details').value = ''
+        document.getElementById('structure').value = ''
     }
 
     return(
