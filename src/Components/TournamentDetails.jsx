@@ -3,7 +3,6 @@ import {useParams} from 'react-router-dom'
 
 function TournamentDetails (){
     
-
     let [user, setUser] =useState()
     let [tournament, setTournament] = useState()
     let [organizer, setOrganizer] = useState(false)

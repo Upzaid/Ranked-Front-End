@@ -133,7 +133,6 @@ li {
   min-height: 150px;
   position: relative;
   .delete {
-    max-width: 32%;
     position: absolute;
     bottom: 1px;
     right: 1px;
@@ -141,6 +140,30 @@ li {
 }
 
 .tournament-card:hover {
+  cursor: pointer;
+  background-color: rgb(231, 231, 231);
+}
+
+// INVITE CARD
+.invite-card {
+  display: grid;
+  grid-template-columns: 12fr 1fr 1fr;
+  border: 1px solid #ddd;
+  padding-left: 5px;
+  background-color: #f3f3f3;
+  justify-content: center;
+  align-items: center;
+  .button,
+  .delete {
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    color: black;
+  }
+}
+
+.invite-card:hover {
   cursor: pointer;
   background-color: rgb(231, 231, 231);
 }
@@ -175,5 +198,5 @@ form {
 }
 
 .error {
-  background-color: rgb(233, 67, 67);
+  background-color: $error;
 }

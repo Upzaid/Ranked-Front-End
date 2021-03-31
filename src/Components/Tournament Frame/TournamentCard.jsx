@@ -9,7 +9,6 @@ function TournamentCard (props){
             <div >
                 <h2>{props.tournament.tournament_name}</h2>
                 <h3>{props.tournament.game_name}</h3>
-                <p>{props.tournament.detials}</p>
                 <p>{props.tournament.status} | {props.tournament.structure}</p>
             </div>
         </Link>
