@@ -95,12 +95,12 @@ function NewTournament (){
     }
 
     return(
-        <form onSubmit={e => e.preventDefault()}>
+        <form className="form" onSubmit={e => e.preventDefault()}>
             <h2>Create a New Tournament</h2>
             <label htmlFor="name">Tournament Name:</label>
-            <input type="text" name="name" id="name"/>
+            <input type="text" name="name" id="name" required/>
             <label htmlFor="game">Game (or sport):</label>
-            <select type="text" name="game" id="game">
+            <select type="text" name="game" id="game" required>
                 <option value=""></option>
                 {games.map(game =>{
                     return(

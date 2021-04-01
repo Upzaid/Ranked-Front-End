@@ -27,14 +27,16 @@ function LogIn(){
     }
 
     return (
-        <form onSubmit={e => e.preventDefault()}>
-            <h1>Log In</h1>
-            <label htmlFor="email">E-mail:</label>
-            <input type="email" name="email" id="email" required/>
-            <label htmlFor="password">Password:</label>
-            <input type="password" name="password" id="password" required/>
-            <button type="submit" className='button' onClick={() => submit()}>Submit</button>
-        </form>
+        <div className="container">
+            <form className='form' onSubmit={e => e.preventDefault()}>
+                <h1>Log In</h1>
+                <label htmlFor="email">E-mail:</label>
+                <input type="email" name="email" id="email" required/>
+                <label htmlFor="password">Password:</label>
+                <input type="password" name="password" id="password" required/>
+                <button type="submit" className='button' onClick={() => submit()}>Submit</button>
+            </form>
+        </div>
     );
 };
 

@@ -6,6 +6,10 @@
   font-family: "Roboto Condensed";
 }
 
+button {
+  border: none;
+}
+
 a,
 a:visited {
   text-decoration: none;
@@ -59,6 +63,7 @@ li {
 .delete {
   background-color: #f36868;
   padding: 1px;
+  display: inline-block;
 }
 
 .delete:hover {
@@ -69,6 +74,7 @@ li {
 .button {
   background-color: #428bff;
   color: white;
+  display: inline-block;
 }
 
 .button:hover {
@@ -90,14 +96,14 @@ li {
 }
 
 .content-container {
-  padding: 0 50px;
+  padding: 0 50px 10px 50px;
 }
 
 .content {
   padding: 20px;
-  height: 80vh;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .tournament-card-container {
@@ -112,6 +118,7 @@ li {
   padding: 10px;
   border: 1px solid #ddd;
   min-height: 150px;
+  min-width: 200px;
   position: relative;
 }
 .tournament-card .delete {
@@ -148,15 +155,15 @@ li {
   background-color: #e7e7e7;
 }
 
-form {
+.form {
   background-color: #f3f3f3;
   padding: 40px;
   display: flex;
   flex-direction: column;
   border: none;
 }
-form * {
-  margin-bottom: 5px;
+.form * {
+  margin-bottom: 10px;
   border: none;
 }
 
@@ -168,7 +175,7 @@ form * {
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.637);
-  height: 100%;
+  height: 110%;
 }
 .form-container .delete {
   justify-self: flex-end;
@@ -177,6 +184,54 @@ form * {
 
 .error {
   background-color: #ff4242;
+}
+
+.container {
+  padding: 10% 30%;
+}
+
+.tournament-frame {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  min-height: 100vh;
+}
+
+.banner {
+  height: 30vh;
+  background-color: #f1f1f1;
+}
+
+.tournament-info {
+  display: grid;
+  padding: 2%;
+  background-color: #292e38;
+  color: white;
+  grid-template-columns: 9fr 1fr;
+}
+.tournament-info .button {
+  padding: 3px;
+  height: 25%;
+  color: black;
+  width: 110px;
+}
+
+.tournament-details {
+  padding: 2%;
+}
+
+.new-invite input {
+  margin: 5px 10px;
+  height: 30px;
+  font-size: 1.2em;
+}
+.new-invite .button {
+  padding: 5px 10px;
+}
+.new-invite label {
+  font-size: 1.2em;
+}
+.new-invite button {
+  font-size: 1.1em;
 }
 
 /*# sourceMappingURL=App.css.map */

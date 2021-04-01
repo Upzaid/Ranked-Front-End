@@ -5,7 +5,7 @@ import LandingPage from './Components/Landing Page'
 import Register from './Components/Register'
 import Nav from './Components/Nav'
 import Profile from './Components/Profile'
-import TournamentDetails from './Components/TournamentDetails'
+import TournamentDetails from './Components/Tournament Details/TournamentDetails'
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 const Routes = ()=>{

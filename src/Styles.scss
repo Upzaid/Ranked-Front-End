@@ -14,6 +14,10 @@ $error: #ff4242;
   font-family: "Roboto Condensed";
 }
 
+button {
+  border: none;
+}
+
 a,
 a:visited {
   text-decoration: none;
@@ -71,6 +75,7 @@ li {
 .delete {
   background-color: rgb(243, 104, 104);
   padding: 1px;
+  display: inline-block;
 }
 .delete:hover {
   background-color: rgb(212, 89, 89);
@@ -80,6 +85,7 @@ li {
 .button {
   background-color: $primary-color;
   color: $text-color;
+  display: inline-block;
 }
 
 .button:hover {
@@ -107,14 +113,14 @@ li {
 // CONTENT CONTAINER
 
 .content-container {
-  padding: 0 50px;
+  padding: 0 50px 10px 50px;
 }
 
 .content {
   padding: 20px;
-  height: 80vh;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 // TOURNAMENT CARD AND CONTAINER
@@ -131,6 +137,7 @@ li {
   padding: 10px;
   border: 1px solid #ddd;
   min-height: 150px;
+  min-width: 200px;
   position: relative;
   .delete {
     position: absolute;
@@ -170,14 +177,14 @@ li {
 
 // FORM CONTAINER
 
-form {
+.form {
   background-color: #f3f3f3;
   padding: 40px;
   display: flex;
   flex-direction: column;
   border: none;
   * {
-    margin-bottom: 5px;
+    margin-bottom: 10px;
     border: none;
   }
 }
@@ -190,7 +197,7 @@ form {
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.637);
-  height: 100%;
+  height: 110%;
   .delete {
     justify-self: flex-end;
     max-width: 12%;
@@ -199,4 +206,55 @@ form {
 
 .error {
   background-color: $error;
+}
+
+.container {
+  padding: 10% 30%;
+}
+
+// TOURNAMENT DETAILS
+.tournament-frame {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  min-height: 100vh;
+}
+.banner {
+  height: 30vh;
+  background-color: #f1f1f1;
+}
+
+.tournament-info {
+  display: grid;
+  padding: 2%;
+  background-color: #292e38;
+  color: $text-color;
+  grid-template-columns: 9fr 1fr;
+  .button {
+    padding: 3px;
+    height: 25%;
+    color: black;
+    width: 110px;
+  }
+}
+
+.tournament-details {
+  padding: 2%;
+}
+
+// NEW INVITE
+.new-invite {
+  input {
+    margin: 5px 10px;
+    height: 30px;
+    font-size: 1.2em;
+  }
+  .button {
+    padding: 5px 10px;
+  }
+  label {
+    font-size: 1.2em;
+  }
+  button {
+    font-size: 1.1em;
+  }
 }

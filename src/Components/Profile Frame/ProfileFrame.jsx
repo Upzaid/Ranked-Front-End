@@ -79,7 +79,7 @@ function ProfileFrame (){
                         <h3>Game 3</h3>
                     </div>
                     <div style={{alignSelf:'flex-end', backgroundColor:'gray', height:'25px', width:'25px'}}>
-                        Settings
+                        Edit Profile
                     </div>
                 </div>
                 <div >
@@ -87,8 +87,8 @@ function ProfileFrame (){
                         <li onClick={() =>{setContent(<OverviewFrame/>)}}>Overview</li>
                         <li onClick={() =>{setContent(<TournamentFrame/>)}}>Tournaments</li>
                         <li onClick={() =>{setContent(<MatchesFrame/>)}}>Match History</li>
-                        <li onClick={() =>{setContent()}}>Find Tournaments</li>
                         <li onClick={() =>{setContent(<InvitesFrame />)}}>Invites { (!invites || invites.length === 0) ? null : `(${invites.length})`}</li>
+                        <li onClick={() =>{setContent()}}>Find Tournaments</li>
                     </ul>
                 </div>
                 <div className="content-container">
