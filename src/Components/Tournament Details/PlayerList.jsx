@@ -1,10 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
+import {Link} from 'react-router-dom'
 
-function PlayerList(){
+function PlayerList(props){
+
     return(
         <div className="content-container">
-            <h1>Player List</h1>
-            <h2>Not Implemented</h2>
+            {props.players.map(player=>{
+                return(
+                  <div className="player-card-container">
+                      <Link to={`/${player.username}/profile`}>
+                          <div className="player-card">{player.username}</div>
+                      </Link>
+                      <div className="delete">DROP / DQ</div>
+                  </div>
+                )
+            })}
         </div>
     )
 }

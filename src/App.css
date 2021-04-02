@@ -237,4 +237,23 @@ li {
   font-size: 1.1em;
 }
 
+.player-card-container {
+  display: grid;
+  grid-template-columns: 12fr 1fr;
+}
+.player-card-container .delete {
+  display: grid;
+  justify-content: center;
+  border: 1px solid #ccc;
+}
+
+.player-card {
+  border: 1px solid #f3f3f3;
+  padding: 3px;
+}
+
+.player-card:hover {
+  background-color: #e7e7e7;
+}
+
 /*# sourceMappingURL=App.css.map */

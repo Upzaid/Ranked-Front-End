@@ -12,6 +12,7 @@ function OrganizerMenu (){
     let [content, setContent] = useState()
     let [requests, setRequests] = useState([])
     let [closeButton, setCloseButton] = useState()
+    let [playerList, setPlayerList] = useState([])
 
     useEffect(()=>{
         getRequests()
@@ -35,6 +36,18 @@ function OrganizerMenu (){
         setRequests(newArray)
     }
 
+    // Get player list
+    // Get requests
+    async function getRequests(){
+
+        const response = await fetch(`${rankedAPI}/tournament/${tournament_id}/players`,{
+            headers: {
+                'ranked-token' : localStorage.getItem('ranked-token')
+            }
+        })
+        if (response.status < 300) setPlayerList(await response.json())
+    }
+
     // Close button
 
     function closeContent(){
@@ -51,7 +64,7 @@ function OrganizerMenu (){
     return(
         <div>
             <div className="home-menu">
-                <li onClick={()=>{placeContent(<PlayerList/>)}}>Player List</li>
+                <li onClick={()=>{placeContent(<PlayerList players={playerList}/>)}}>Player List</li>
                 <li onClick={()=>{placeContent(<ReportMatch/>)}}>Report Matches</li>
                 <li onClick={()=>{placeContent(<NewInvite/>)}}>Send Invite</li>
                 <li onClick={()=>{placeContent(<Requests />)}}>Pending Requests {(!requests || requests.length ===0) ? null: `(${requests.length})`}</li>

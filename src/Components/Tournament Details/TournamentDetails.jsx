@@ -62,9 +62,9 @@ function TournamentDetails (){
                     {organizer ? 
                     <OrganizerMenu/>
                     :null}
-                    <div className="banner">
+                    {/* <div className="banner">
                         BANNER
-                    </div>
+                    </div> */}
                     <div className="tournament-info">
                         <div>
                             <h1>{tournament.name}</h1>

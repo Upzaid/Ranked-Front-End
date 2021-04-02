@@ -262,3 +262,23 @@ li {
     font-size: 1.1em;
   }
 }
+
+// PLAYER CARD
+.player-card-container {
+  display: grid;
+  grid-template-columns: 12fr 1fr;
+  .delete {
+    display: grid;
+    justify-content: center;
+    border: 1px solid #ccc;
+  }
+}
+
+.player-card {
+  border: 1px solid #f3f3f3;
+  padding: 3px;
+}
+
+.player-card:hover {
+  background-color: rgb(231, 231, 231);
+}

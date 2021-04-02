@@ -28,7 +28,7 @@ function Requests(){
         setRequests(newArray)
     }
 
-    // TODO Accept request
+    // Accept request
 
     async function acceptRequest(username){
         const payload = {
@@ -48,7 +48,7 @@ function Requests(){
         if (response.status < 300) getRequests()
     }
 
-    // TODO Decline request
+    // Decline request
 
     async function declineRequest(username){
         const payload = {
