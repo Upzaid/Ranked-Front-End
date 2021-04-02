@@ -16,7 +16,7 @@ function InvitesFrame (){
         }
         
         const response = await fetch(`${rankedAPI}/request/invites`, {headers: headers})
-        const inviteArray = (await response.json())
+        const inviteArray = await response.json()
         let newArray = []
         for(let i = 0; i < inviteArray.length; i++){
             if (inviteArray[i].status === 'PENDING'){

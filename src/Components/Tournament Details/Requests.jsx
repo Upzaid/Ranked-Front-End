@@ -18,19 +18,54 @@ function Requests(){
                 'ranked-token' : localStorage.getItem('ranked-token')
             }
         })
-        setRequests(await response.json());
+        const requestArray = await response.json()
+        let newArray = []
+        for(let i = 0; i < requestArray.length; i++){
+            if(requestArray[i].status === 'PENDING'){
+                newArray.push(requestArray[i])
+            }
+        }
+        setRequests(newArray)
     }
 
     // TODO Accept request
 
-    async function acceptRequest(){
-        alert('Request Accepted')
+    async function acceptRequest(username){
+        const payload = {
+            tournament_id: tournament_id,
+            username: username
+        }
+
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/request/accept`,{
+            method:'POST',
+            body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'ranked-token' : localStorage.getItem('ranked-token')
+            }
+        })
+        if (response.status < 300) getRequests()
     }
 
     // TODO Decline request
 
-    async function declineRequest(){
-        alert('Request Declined')
+    async function declineRequest(username){
+        const payload = {
+            tournament_id: tournament_id,
+            username: username
+        }
+
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/request/decline`,{
+            method:'PUT',
+            body: JSON.stringify(payload),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'ranked-token' : localStorage.getItem('ranked-token')
+            }
+        })
+        if (response.status < 300) getRequests()
         
     }
 
@@ -40,8 +75,8 @@ function Requests(){
                 return(
                     <div key={request.username} className="invite-card">
                         <RequestCard request={request}/>
-                        <div className='button' onClick={()=>{acceptRequest()}}>Accept</div>
-                        <div className='delete' onClick={()=>{declineRequest()}}>Decline</div>
+                        <div className='button' onClick={()=>{acceptRequest(request.username)}}>Accept</div>
+                        <div className='delete' onClick={()=>{declineRequest(request.username)}}>Decline</div>
                     </div>
                 )
             })}

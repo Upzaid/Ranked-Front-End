@@ -20,12 +20,19 @@ function OrganizerMenu (){
     // Get requests
     async function getRequests(){
 
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/request/${tournament_id}/all`,{
+        const response = await fetch(`${rankedAPI}/request/${tournament_id}/all`,{
             headers: {
                 'ranked-token' : localStorage.getItem('ranked-token')
             }
         })
-        setRequests(await response.json());
+        const requestArray = await response.json()
+        let newArray = []
+        for(let i = 0; i < requestArray.length; i++){
+            if(requestArray[i].status === 'PENDING'){
+                newArray.push(requestArray[i])
+            }
+        }
+        setRequests(newArray)
     }
 
     // Close button
