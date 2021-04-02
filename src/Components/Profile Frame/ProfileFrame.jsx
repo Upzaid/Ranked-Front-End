@@ -88,6 +88,7 @@ function ProfileFrame (){
                         <li onClick={() =>{setContent(<TournamentFrame/>)}}>Tournaments</li>
                         <li onClick={() =>{setContent(<MatchesFrame/>)}}>Match History</li>
                         <li onClick={() =>{setContent(<InvitesFrame />)}}>Invites { (!invites || invites.length === 0) ? null : `(${invites.length})`}</li>
+                        <li onClick={() =>{setContent()}}>Join Requests </li>
                         <li onClick={() =>{setContent()}}>Find Tournaments</li>
                     </ul>
                 </div>

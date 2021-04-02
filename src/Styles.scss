@@ -217,6 +217,9 @@ li {
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
   min-height: 100vh;
+  .content {
+    border: none;
+  }
 }
 .banner {
   height: 30vh;
@@ -229,6 +232,7 @@ li {
   background-color: #292e38;
   color: $text-color;
   grid-template-columns: 9fr 1fr;
+
   .button {
     padding: 3px;
     height: 25%;

@@ -16,7 +16,6 @@ function NewInviteFrame(){
             setPlayer([await response.json()]);
             setError()
             return
-            
         } 
         setPlayer([])
         setError(<p className="error"> USER DOES NOT EXIST</p>)

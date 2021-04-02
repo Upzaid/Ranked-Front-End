@@ -195,6 +195,9 @@ li {
   border-right: 1px solid #ddd;
   min-height: 100vh;
 }
+.tournament-frame .content {
+  border: none;
+}
 
 .banner {
   height: 30vh;

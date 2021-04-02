@@ -32,6 +32,23 @@ function TournamentDetails (){
         setOrganizer(true)
     }
 
+    // Send Join Request
+    async function joinRequest(id){
+
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/request/join`,{
+            body: JSON.stringify({tournament_id: id}),
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'ranked-token': localStorage.getItem('ranked-token')
+            }
+        })
+        if (response.status < 300) return alert('Request sent succesfully')
+        
+        alert('Request already sent or you have already joined this tournament')
+    }
+
     if(!tournament){
         return (
             <h1>Tournament does not exist</h1>
@@ -54,7 +71,7 @@ function TournamentDetails (){
                             <h2>{tournament.game}</h2>
                             <h2>{tournament.state}, {tournament.country}</h2>
                         </div>
-                        {user ? <div className="button">JOIN REQUEST</div> :null}
+                        {user ? <div className="button" onClick={()=>{joinRequest(tournament_id)}}>JOIN REQUEST</div> :null}
                     </div>
                     <pre className="tournament-details">
                         {tournament.details}
