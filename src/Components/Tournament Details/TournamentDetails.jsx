@@ -29,7 +29,8 @@ function TournamentDetails (){
 
     // Check if the user is organizer
     async function getOrganizer(){
-        setOrganizer(true)
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/tournament/${tournament_id}/organizer`, {headers: {'ranked-token': localStorage.getItem('ranked-token')}})
+        setOrganizer(await response.json());
     }
 
     // Send Join Request

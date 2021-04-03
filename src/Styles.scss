@@ -114,6 +114,8 @@ li {
 
 .content-container {
   padding: 0 50px 10px 50px;
+  max-height: 90vh;
+  overflow: hidden;
 }
 
 .content {
