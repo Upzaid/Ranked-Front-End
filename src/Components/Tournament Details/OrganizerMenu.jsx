@@ -5,6 +5,7 @@ import ReportMatch from './ReportMatch'
 import MatchHistory from './MatchHistory'
 import NewInvite from './NewInvite'
 import Requests from './Requests'
+import LocalPlayers from'./LocalPlayers'
 
 function OrganizerMenu (){
     const rankedAPI = process.env.REACT_APP_API_URL
@@ -16,6 +17,7 @@ function OrganizerMenu (){
 
     useEffect(()=>{
         getRequests()
+        getPlayerList()
     },[content])
 
     // Get requests
@@ -37,8 +39,8 @@ function OrganizerMenu (){
     }
 
     // Get player list
-    // Get requests
-    async function getRequests(){
+    
+    async function getPlayerList(){
 
         const response = await fetch(`${rankedAPI}/tournament/${tournament_id}/players`,{
             headers: {
@@ -65,7 +67,8 @@ function OrganizerMenu (){
         <div>
             <div className="home-menu">
                 <li onClick={()=>{placeContent(<PlayerList players={playerList}/>)}}>Player List</li>
-                <li onClick={()=>{placeContent(<ReportMatch/>)}}>Report Matches</li>
+                <li onClick={()=>{placeContent(<ReportMatch  players={playerList}/>)}}>Report Matches</li>
+                <li onClick={()=>{placeContent(<LocalPlayers />)}}>Local Players</li>
                 <li onClick={()=>{placeContent(<NewInvite/>)}}>Send Invite</li>
                 <li onClick={()=>{placeContent(<Requests />)}}>Pending Requests {(!requests || requests.length ===0) ? null: `(${requests.length})`}</li>
                 <li onClick={()=>{placeContent(<MatchHistory/>)}}>Match History</li>

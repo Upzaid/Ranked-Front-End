@@ -68,7 +68,13 @@ function Requests(){
         if (response.status < 300) getRequests()
         
     }
-
+    if(!requests || requests.length === 0){
+        return(
+            <div className="content-container">
+                    <h1>No Pending Requests</h1>
+            </div>
+        )
+    }
     return(
         <div className="content">
             {requests.map(request =>{
