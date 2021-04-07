@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react'
 import Geonames from 'geonames.js'
 
 function NewTournament (){
@@ -21,7 +21,7 @@ function NewTournament (){
     let [regions, setRegions] = useState([])
     let [games, setGames] = useState([])
     let [submitErrors, setSubmitErrors] =useState([])
-    
+   
     // API Call for game list
 
     const getGames = async () =>{
@@ -62,7 +62,6 @@ function NewTournament (){
             state: document.getElementById('state').options[document.getElementsByName('state')[0].selectedIndex].text,
             region: document.getElementById('region').value,
             online: document.getElementById('online').value,
-            details: document.getElementById('details').value,
             structure: document.getElementById('structure').value
         }
 
@@ -90,12 +89,12 @@ function NewTournament (){
         document.getElementById('state').options[document.getElementsByName('state')[0].selectedIndex].text = ''
         document.getElementById('region').value = ''
         document.getElementById('online').value = ''
-        document.getElementById('details').value = ''
         document.getElementById('structure').value = ''
     }
 
     return(
         <form className="form" onSubmit={e => e.preventDefault()}>
+           
             <h2>Create a New Tournament</h2>
             <label htmlFor="name">Tournament Name:</label>
             <input type="text" name="name" id="name" required/>
@@ -140,14 +139,13 @@ function NewTournament (){
                 <option value="true">Yes</option>
                 <option value="false">No</option>
             </select>
-            <label htmlFor="details">Details</label>
-            <textarea name="details" id="details" cols="30" rows="10"></textarea>
             <label htmlFor="structure">Structure:</label>
             <select name="structure" id="structure">
-                <option value="structure">Mock Structure Name</option>
+                <option value="structure">League</option>
             </select>
             <button className='button' type="submit" onClick={() => submit()}>Submit</button>
             <p className='error'>{submitErrors}</p>
+
         </form>
     )
 }

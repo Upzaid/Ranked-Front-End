@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
 import OrganizerMenu from './OrganizerMenu'
+import DetailsFrame from './DetailsFrame'
 
 function TournamentDetails (){
     
@@ -25,6 +26,7 @@ function TournamentDetails (){
     let getUser = async () =>{
         const response = await fetch(`${process.env.REACT_APP_API_URL}/user/status`, {headers: {'ranked-token': localStorage.getItem('ranked-token')}})
         setUser(await response.json())
+        console.log(user);
     }
 
     // Check if the user is organizer
@@ -74,9 +76,9 @@ function TournamentDetails (){
                         </div>
                         {user ? <div className="button" onClick={()=>{joinRequest(tournament_id)}}>JOIN REQUEST</div> :null}
                     </div>
-                    <pre className="tournament-details">
+                    <div className="tournament-details">
                         {tournament.details}
-                    </pre>
+                    </div>
                  </div>
                 )
             })}
