@@ -77,7 +77,7 @@ function TournamentDetails (){
                         {user ? <div className="button" onClick={()=>{joinRequest(tournament_id)}}>JOIN REQUEST</div> :null}
                     </div>
                     <div className="tournament-details">
-                        <DetailsFrame organizer={organizer} details={tournament.details}/>
+                        <DetailsFrame organizer={organizer} details={JSON.parse(tournament.details)}/>
                     </div>
                  </div>
                 )
