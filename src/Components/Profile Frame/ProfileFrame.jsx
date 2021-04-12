@@ -7,10 +7,13 @@ import InvitesFrame from '../Invites Frame/InvitesFrame'
 function ProfileFrame (){
 
     const rankedAPI = process.env.REACT_APP_API_URL
+    const fallBackPicture ='https://cdn.business2community.com/wp-content/uploads/2017/08/blank-profile-picture-973460_640.png'
 
     let [content, setContent] = useState(<OverviewFrame/>)
     let [user, setUser] = useState()
     let [invites, setInvites] =useState()
+    let [profilePicture, setProfilePicture] = useState()
+    let [prueba, setPrueba] = useState()
 
     useEffect(()=>{
         getUser()
@@ -47,23 +50,32 @@ function ProfileFrame (){
         setInvites(newArray)        
     }
 
-    const styles= {
-        backgroundColor: '#eee',
-        backgroundPosition: 'center',
-        backgroundSize:'cover',
-        backgroundRepeat:'no-repeat',
-        width: '160px',
-        height: '160px',
+
+    async function profilePic(e) {
+        const image = e.target.files[0]
+        const fd = new FormData()
+        fd.append("image", image)
+        const response = await fetch(`${rankedAPI}/user/profile-pic`, {
+            method: 'POST',
+            headers:{
+                'ranked-token': localStorage.getItem('ranked-token')
+            },
+            body: fd
+        })
+        setProfilePicture(await response.json());
     }
 
     if(user){
         return(
             <div>
-                <div style={{display:'flex', padding: '20px 50px', backgroundColor: '#292e38',}}>
-                    <div style={styles}>
-                        Profile Pic
+                <div style={{display:'flex', padding: '20px 50px', backgroundColor: '#292e38'}}>
+                    <div >
+                        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', width:'180px', height: '180px'}} >
+                            <img src={profilePicture ? `data:image/*;base64,${profilePicture}`: fallBackPicture} style={{maxWidth:'180px', maxHeight: '180px'}}  alt="PorfilePicture"/>
+                        </div>
+                        <input name="profilepic" id="profilepic" onChange={(e)=>{profilePic(e)}} type="file" />
                     </div>
-                    <div style={{flex: 3, marginLeft: '30px', color:'#eee'}}>
+                    <div style={{flex: 3, color:'#eee'}}>
                         <h1>{user.username}</h1>
                         <h3>{user.state}, {user.country}</h3>
                         <div>
