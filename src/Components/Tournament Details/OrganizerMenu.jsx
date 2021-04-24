@@ -71,7 +71,7 @@ function OrganizerMenu (){
                 <li onClick={()=>{placeContent(<LocalPlayers />)}}>Local Players</li>
                 <li onClick={()=>{placeContent(<NewInvite/>)}}>Send Invite</li>
                 <li onClick={()=>{placeContent(<Requests />)}}>Pending Requests {(!requests || requests.length ===0) ? null: `(${requests.length})`}</li>
-                <li onClick={()=>{placeContent(<MatchHistory/>)}}>Match History</li>
+                <li onClick={()=>{placeContent(<MatchHistory tournament_id = {tournament_id}/>)}}>Match History</li>
             </div>
             <div>
                 {closeButton}

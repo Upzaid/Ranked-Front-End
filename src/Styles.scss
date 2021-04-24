@@ -72,6 +72,11 @@ li {
 }
 
 // GENERAL CLASSES
+.heading {
+  font-size: 1.3em;
+  background: $primary-color;
+}
+
 .delete {
   background-color: rgb(243, 104, 104);
   padding: 1px;
@@ -80,6 +85,16 @@ li {
 .delete:hover {
   background-color: rgb(212, 89, 89);
   cursor: pointer;
+}
+
+.success {
+  background-color: rgb(101, 230, 123);
+  padding: 1px;
+  display: inline-block;
+}
+
+.message {
+  padding: 5px;
 }
 
 .button {
@@ -286,9 +301,27 @@ li {
 }
 
 // REPORT MATCH
-.report-card {
-  display: grid;
+.report-match {
+  * {
+    margin: 5px;
+  }
+  input[type="number"] {
+    width: 35px;
+  }
+  .button {
+    padding: 5px;
+  }
 }
 
-.prueba {
+.match-card {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 3fr 1fr 3fr;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  min-height: 40px;
+  a {
+    text-decoration: underline;
+  }
 }

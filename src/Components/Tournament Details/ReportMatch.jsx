@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom'
 
 function ReportMatch(props){
-    // TODO Functionality
 
     const rankedAPI = process.env.REACT_APP_API_URL
 
@@ -18,7 +17,7 @@ function ReportMatch(props){
             p2_wins: document.getElementById('p2wins').value
         }
         
-        await fetch(`${rankedAPI}/match/submit`,{
+        const response = await fetch(`${rankedAPI}/match/submit`,{
             method: 'POST',
             body: JSON.stringify(match),
             headers:{
@@ -27,19 +26,26 @@ function ReportMatch(props){
                 'ranked-token': localStorage.getItem('ranked-token')
             }
         })
+
+        if (response.status < 300){
+            return setMessage({text:'Match submitted succesfully', class: 'success'})
+        }
+        return setMessage({text:'Something went wrong submitting the match', class:'delete'})
     }
 
     return(
         <div className="content-container">
             <h1>Report Match</h1>
             
-            <form onSubmit={e =>{e.preventDefault()}} className="">
+            {message ? <span className={`${message.class} message` }>{message.text}</span> : null}
+
+            <form onSubmit={e =>{e.preventDefault()}} className="report-match">
                 <label htmlFor="">Player 1: </label>
                 <select name="" id="player1">
                     <option value=""></option>
                     {props.players.map(player =>{
                         return(
-                            <option value="">{player.username}</option>
+                            <option key={player.username} value="">{player.username}</option>
                         )
                     })}
                 </select>
@@ -48,14 +54,14 @@ function ReportMatch(props){
                     <option value=""></option>
                     {props.players.map(player =>{
                         return(
-                            <option value="">{player.username}</option>
+                            <option  key={player.username} value="">{player.username}</option>
                         )
                     })}
                 </select>
                 <br/>
-                <label htmlFor="p1wins">Player 1 wins:</label>
-                <input type="number" name="p1wins" id="p1wins" min="0"/>
-                <label htmlFor="p2wins">Player 2 wins:</label>
+                <label htmlFor="p1wins">P1 Score:</label>
+                <input type="number" name="p1wins" id="p1wins" min="0"/><br/>
+                <label htmlFor="p2wins">P2 Score:</label>
                 <input type="number" name="p2wins" id="p2wins" min="0"/>
                 <br/>
                 <button className="button" onClick={()=>{submitMatch()}}>SEND RESULT</button>

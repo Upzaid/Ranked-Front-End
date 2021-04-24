@@ -60,6 +60,11 @@ li {
   color: #428bff;
 }
 
+.heading {
+  font-size: 1.3em;
+  background: #428bff;
+}
+
 .delete {
   background-color: #f36868;
   padding: 1px;
@@ -69,6 +74,16 @@ li {
 .delete:hover {
   background-color: #d45959;
   cursor: pointer;
+}
+
+.success {
+  background-color: #65e67b;
+  padding: 1px;
+  display: inline-block;
+}
+
+.message {
+  padding: 5px;
 }
 
 .button {
@@ -258,8 +273,27 @@ li {
   background-color: #e7e7e7;
 }
 
-.report-card {
+.report-match * {
+  margin: 5px;
+}
+.report-match input[type=number] {
+  width: 35px;
+}
+.report-match .button {
+  padding: 5px;
+}
+
+.match-card {
+  width: 100%;
   display: grid;
+  grid-template-columns: 2fr 3fr 1fr 3fr;
+  justify-items: center;
+  align-items: center;
+  border: 1px solid #ddd;
+  min-height: 40px;
+}
+.match-card a {
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=App.css.map */
