@@ -1,28 +1,28 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom'
 
-function MatchCard(params) {
+function MatchCard(porps) {
     
     return(
      
         <div className="match-card">
             <span>
-                {`${(new Date(params.match.timestamp).toLocaleDateString())} ${(new Date(params.match.timestamp).toLocaleTimeString())}`}
+                {`${(new Date(porps.match.timestamp).toLocaleDateString())} ${(new Date(porps.match.timestamp).toLocaleTimeString())}`}
             </span>
             <span>
-                <Link to ={`/${params.match.p1}/profile`}>{params.match.p1} </Link>
+                <Link to ={`/${porps.match.p1}/profile`}>{porps.match.p1} </Link>
                 <span>
-                    ({params.match.p1_rating})
+                    ({porps.match.p1_rating})
                 </span>
             </span>
             <span>
-                {params.match.p1_wins} - {params.match.p2_wins}
+                {porps.match.p1_wins} - {porps.match.p2_wins}
             </span>
             <span >
                 <span>
-                    ({params.match.p2_rating})
+                    ({porps.match.p2_rating})
                 </span>
-                 <Link to={`/${params.match.p2}/profile`}>{params.match.p2}</Link>
+                 <Link to={`/${porps.match.p2}/profile`}>{porps.match.p2}</Link>
             </span>
         </div>
     )
